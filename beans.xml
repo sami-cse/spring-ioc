@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-merge="false">
+
+
+	<bean id="student" class="com.sami.spring_ioc.pojo.Student">
+		<constructor-arg value="Samiul" name="studentName"
+			index="0"></constructor-arg>
+		<constructor-arg value="28" name="age" index="1"></constructor-arg>
+		<property name="university">
+			<value>Dhaka University</value>
+		</property>
+		<property ref="address" name="address"></property>
+		<property name="accounts">
+			<list>
+				<ref bean="account1" />
+				<ref bean="account2" />
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="address" class="com.sami.spring_ioc.pojo.Address">
+		<constructor-arg value="Dhaka" name="division"
+			index="0"></constructor-arg>
+		<constructor-arg value="Mymensing" name="district"
+			index="1"></constructor-arg>
+	</bean>
+
+
+	<bean id="account1" class="com.sami.spring_ioc.pojo.Account">
+		<property name="branchName">
+			<value>Uttara</value>
+		</property>
+	</bean>
+	<bean id="account2" class="com.sami.spring_ioc.pojo.Account">
+		<property name="branchName">
+			<value>Khilgaon</value>
+		</property>
+	</bean>
+
+</beans>
+
+
